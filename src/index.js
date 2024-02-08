@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/add/:n/:m', (req,res) => { // Fills request from any path /add/n/m where n and m are numbers
-  res.json(Number(req.params.n) + Number(req.params.m)); // Adds n and m as numbers and returns them as json.
+  res.json(Number(req.params.n) + Number(req.params.m)); // Adds n and m as numbers and returns them as json
 })
 
 app.listen(port);
