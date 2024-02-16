@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: npm install
+        run: npm ci
+      - name: npm test
+        run: npm test
       - name: Build and push the Image
         run: |
           docker login --username owenhar --password ${{secrets.ACCESS_TOKEN}} ghcr.io
