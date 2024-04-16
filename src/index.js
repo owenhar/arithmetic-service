@@ -1,10 +1,16 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const port = 3000;
 const { add, subtract, multiply, divide} = require("./arithmetica")
 
 app.use(cors());
+
+if (!process.env.PORT) {
+  throw new Error("No http port specificied, please specify this in the ENV variables");
+}
+
+const port = process.env.PORT;
 
 app.get('/', (req, res) => {
   res.send('Arithmetic service -- Hello World');
