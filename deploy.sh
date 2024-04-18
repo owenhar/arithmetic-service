@@ -2,4 +2,4 @@ set -u
 : "$CONTAINER_REGISTRY"
 : "$VERSION"
 
-envsubst < ./deploy.yaml | kubectl apply -f -
+envsubst < ./deploy.yml | kubectl apply -f -
