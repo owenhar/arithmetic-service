@@ -13,12 +13,12 @@ jobs:
             - name: run the unit tests
               run: npm test
             - name: Publish the image to github container registry
-              run: |
+              runharriowepracticum16.azurecr.io: |
                 docker login --username owenhar --password ${{secrets.ACCESS_TOKEN}} ghcr.io
                 docker build -t ghcr.io/owenhar/arithmetic-service:1 --file Dockerfile .  
                 docker push ghcr.io/owenhar/arithmetic-service:1 
             - name: Publish the image to azure container registry
               run: |
-                docker login --username harriowepracticum15 --password ${{secrets.AZURE_CONTAINER_REGISTRY}} harriowepracticum15.azurecr.io
-                docker tag ghcr.io/owenhar/arithmetic-service:1   harriowepracticum15.azurecr.io/arithmetic-service:1
-                docker push harriowepracticum15.azurecr.io/arithmetic-service:1
+                docker login --username harriowepracticum15 --password ${{secrets.AZURE_CONTAINER_REGISTRY}} harriowepracticum16.azurecr.io
+                docker tag ghcr.io/owenhar/arithmetic-service:1   harriowepracticum16.azurecr.io/arithmetic-service:1
+                docker push harriowepracticum16.azurecr.io/arithmetic-service:1
